@@ -26,7 +26,15 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <a ui-sref="main">Main</a>
+    <a ui-sref="login">Login</a>
+    <a ui-sref="school">School</a>
+
+    <div class="container" ui-view ng-hide="doingResolve"></div>
+
+    <div class="jumbotron loading-jumbo" ng-show="doingResolve">
+      <h2><i class="icon-refresh icon-2x icon-spin"></i> Cargando</h2>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -41,6 +49,7 @@
 
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
     <!-- build:js scripts/modules.js -->
     <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -51,6 +60,11 @@
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/school.js"></script>
+    <script src="scripts/services/auth.js"></script>
+    <script src="scripts/services/routingConfig.js"></script>
     <!-- endbuild -->
 </body>
 </html>
+
